@@ -40,6 +40,7 @@ class ConfigFile(BaseModel):
     project_name_override: Optional[str] = None
     package_name_override: Optional[str] = None
     package_version_override: Optional[str] = None
+    tag_override: Optional[dict[str, str]] = None
     use_path_prefixes_for_title_model_names: bool = True
     post_hooks: Optional[list[str]] = None
     docstrings_on_attributes: bool = False
@@ -70,6 +71,7 @@ class Config:
     project_name_override: Optional[str]
     package_name_override: Optional[str]
     package_version_override: Optional[str]
+    tag_override: Optional[dict[str, str]]
     use_path_prefixes_for_title_model_names: bool
     post_hooks: list[str]
     docstrings_on_attributes: bool
@@ -112,6 +114,7 @@ class Config:
             project_name_override=config_file.project_name_override,
             package_name_override=config_file.package_name_override,
             package_version_override=config_file.package_version_override,
+            tag_override=config_file.tag_override,
             use_path_prefixes_for_title_model_names=config_file.use_path_prefixes_for_title_model_names,
             post_hooks=post_hooks,
             docstrings_on_attributes=config_file.docstrings_on_attributes,

@@ -64,7 +64,12 @@ class EndpointCollection:
                 if operation is None:
                     continue
 
-                tags = [utils.PythonIdentifier(value=tag, prefix="tag") for tag in operation.tags or ["default"]]
+                tags = []
+                for tag in operation.tags or ["default"]:
+                    tag_ = config.tag_override.get(tag, None)
+                    if not tag_:
+                        tag_ = utils.PythonIdentifier(value=tag, prefix="tag")
+                    tags.append(tag_)
                 if not config.generate_all_tags:
                     tags = tags[:1]
 
