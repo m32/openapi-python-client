@@ -139,6 +139,7 @@ def _source_by_content_type(content_type: str, config: Config) -> Optional[_Resp
     known_content_types = {
         "application/json": JSON_SOURCE,
         "application/octet-stream": BYTES_SOURCE,
+        "application/xml": BYTES_SOURCE,
     }
     source = known_content_types.get(parsed_content_type)
     if source is None and parsed_content_type.endswith("+json"):
